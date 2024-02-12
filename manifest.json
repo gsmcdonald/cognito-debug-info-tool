@@ -1,0 +1,11 @@
+{
+	"name": "Cognito Dev Tool",
+	"version": "0.0.0.1",
+	"manifest_version": 3,
+	"permissions": ["scripting", "activeTab"],
+	"author": "Graham McDonald",
+	"action":{
+        "default_popup": "src/index.html",
+        "default_title": "Cognito Dev Tool"
+    }
+}
