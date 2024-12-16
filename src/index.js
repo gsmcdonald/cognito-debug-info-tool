@@ -46,7 +46,12 @@ function getInfo() {
 			}
 		}
 		else if (window.location.host.includes("cognito")) {
-			const globalStore = document.querySelector("#app").__vue__.globalStore;
+			const app = document.querySelector("#app");
+
+			if (!app)
+				return null;
+			
+			const globalStore = app.__vue__.globalStore;
 
 			if (!globalStore)
 				return null;
