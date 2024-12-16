@@ -54,7 +54,7 @@ function getInfo() {
 			orgId = globalStore.organization?.Id;
 			formId = globalStore.currentForm?.Id;
 
-			if (window.Cognito.config.flags)
+			if (window.Cognito && window.Cognito.config && window.Cognito.config.flags)
 				Object.entries(window.Cognito.config.flags).forEach(([flag, value]) => {
 					if (value)
 						flags.push(flag);
