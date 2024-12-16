@@ -45,6 +45,27 @@ function getInfo() {
 				flags: flags
 			}
 		}
+		else if (window.location.host.includes("cognito")) {
+			const globalStore = $("#app")[0].__vue__.globalStore;
+
+			if (!globalStore)
+				return null;
+
+			orgId = globalStore.organization?.Id;
+			formId = globalStore.currentForm?.Id;
+
+			if (window.Cognito.config.flags)
+				Object.entries(window.Cognito.config.flags).forEach(([flag, value]) => {
+					if (value)
+						flags.push(flag);
+				});
+
+			return {
+				orgId: orgId,
+				formId: formId,
+				flags: flags
+			}
+		}
 	
 		return null;
 	}
